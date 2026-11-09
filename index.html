@@ -112,20 +112,31 @@
     <!-- Bottom-Left Floating Language Dropup Widget -->
     <div class="lang-dropup-container">
         <div class="lang-menu" id="langMenu">
-            <span class="lang-item" onclick="selectLanguage('English')">🇬🇧 English</span>
-            <span class="lang-item" onclick="selectLanguage('German')">🇩🇪 Deutsch (German)</span>
-            <span class="lang-item" onclick="selectLanguage('French')">🇫🇷 Français (French)</span>
-            <span class="lang-item" onclick="selectLanguage('Spanish')">🇪🇸 Español (Spanish)</span>
-            <span class="lang-item" onclick="selectLanguage('Arabic')">🇸🇦 العربية (Arabic)</span>
-            <span class="lang-item" onclick="selectLanguage('Urdu')">🇵🇰 اردو (Urdu)</span>
+            <span class="lang-item" onclick="changeLanguage('en')">🇬🇧 English</span>
+            <span class="lang-item" onclick="changeLanguage('de')">🇩🇪 Deutsch (German)</span>
+            <span class="lang-item" onclick="changeLanguage('fr')">🇫🇷 Français (French)</span>
+            <span class="lang-item" onclick="changeLanguage('es')">🇪🇸 Español (Spanish)</span>
+            <span class="lang-item" onclick="changeLanguage('ar')">🇸🇦 العربية (Arabic)</span>
+            <span class="lang-item" onclick="changeLanguage('ur')">🇵🇰 اردو (Urdu)</span>
         </div>
         <button class="lang-btn" onclick="toggleLangMenu()">
-            🌐 <span id="currentLang">Language</span> ▴
+            🌐 Language ▴
         </button>
     </div>
 
-    <!-- Script for Dropup and Language Switching -->
-    <script>
+    <!-- Hidden Google Translate Element -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,de,fr,es,ar,ur',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
         function toggleLangMenu() {
             const menu = document.getElementById('langMenu');
             menu.classList.toggle('show');
@@ -138,13 +149,15 @@
             }
         }
 
-        function selectLanguage(lang) {
-            document.getElementById('currentLang').innerText = lang;
+        function changeLanguage(langCode) {
             document.getElementById('langMenu').classList.remove('show');
-            
-            // Yahan aap Google Translate ya multilingual plugin attach kar sakte hain
-            // Filhal yeh button ka text change kar raha hai
+            var selectField = document.querySelector('.goog-te-combo');
+            if (selectField) {
+                selectField.value = langCode;
+                selectField.dispatchEvent(new Event('change'));
+            }
         }
     </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
