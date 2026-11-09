@@ -28,6 +28,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>Turn Your Brand Into a <span>High-Converting Machine</span></h1>
+        <div class="dynamic-text-wrapper">
+    We specialize in <span class="dynamic-text"></span>
+</div>
         <p>We help ambitious businesses scale through high-end branding, custom web engineering, and results-driven digital growth strategies.</p>
         <a href="contact.html" class="primary-cta">Book a Free Audit →</a>
     </section>
@@ -66,6 +69,45 @@
             </div>
         </div>
     </div>
+<script>
+    const words = ["Branding", "Web & App Development", "UI/UX Design", "Logo Design", "Digital Marketing"];
+    let i = 0;
 
+    function typingEffect() {
+        let word = words[i].split("");
+        var loopTyping = function() {
+            if (word.length > 0) {
+                document.querySelector('.dynamic-text').innerHTML += word.shift();
+            } else {
+                setTimeout(deletingEffect, 2000);
+                return;
+            }
+            setTimeout(loopTyping, 100);
+        };
+        loopTyping();
+    }
+
+    function deletingEffect() {
+        let word = words[i].split("");
+        var loopDeleting = function() {
+            if (word.length > 0) {
+                word.pop();
+                document.querySelector('.dynamic-text').innerHTML = word.join("");
+            } else {
+                if (words.length > (i + 1)) {
+                    i++;
+                } else {
+                    i = 0;
+                }
+                setTimeout(typingEffect, 500);
+                return;
+            }
+            setTimeout(loopDeleting, 50);
+        };
+        loopDeleting();
+    }
+
+    typingEffect();
+</script>
 </body>
 </html>
