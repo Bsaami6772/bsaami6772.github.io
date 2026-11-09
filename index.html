@@ -27,12 +27,15 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Turn Your Brand Into a <span>High-Converting Machine</span></h1>
-        <p>We help ambitious businesses scale through high-end branding, custom web engineering, and results-driven digital growth strategies.</p>
+        <h1>Transform Your Brand With Expert</h1>
+        <!-- Dynamic Typing Sub-headline -->
+        <div class="dynamic-text-wrapper">
+            We specialize in <span class="dynamic-text"></span>
+        </div>
         <a href="contact.html" class="primary-cta">Book a Free Audit →</a>
     </section>
 
-    <!-- Web Pages Showcase (Replacing Before/After Images) -->
+    <!-- Web Pages Showcase -->
     <div class="showcase-container">
         <!-- Web Page 1 Mockup -->
         <div class="mockup-card">
@@ -66,6 +69,49 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript for Typing Effect -->
+    <script>
+        const words = ["Branding", "Web & App Development", "UI/UX Design", "Logo Design", "Digital Marketing"];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.querySelector('.dynamic-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.querySelector('.dynamic-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+    </script>
 
 </body>
 </html>
