@@ -5,8 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 body { 
-    background: url('bg.jpg') no-repeat center center fixed; 
-    background-size: cover;
+    background: linear-gradient(180deg, #e0edff 0%, #f4f8ff 40%, #ffffff 100%); 
     color: #0f172a; 
     line-height: 1.6; 
     overflow-x: hidden;
@@ -95,33 +94,23 @@ nav {
     margin: 0 auto; 
 }
 .hero h1 { 
-    font-size: 50px; 
+    font-size: 54px; 
     margin-bottom: 20px; 
     font-weight: 800; 
     letter-spacing: -1.5px;
     color: #0f172a;
-    line-height: 1.2;
+    line-height: 1.15;
 }
-
-/* Typing Effect Sub-headline Styling */
-.dynamic-text-wrapper {
-    font-size: 24px;
-    font-weight: 600;
-    color: #475569;
-    margin-bottom: 35px;
-    height: 40px;
+.hero h1 span { 
+    color: #3b82f6; 
 }
-.dynamic-text {
-    color: #3b82f6;
-    border-right: 3px solid #3b82f6;
-    padding-right: 4px;
-    animation: blink 0.75s infinite;
-}
-
-@keyframes blink {
-    0% { border-color: transparent; }
-    50% { border-color: #3b82f6; }
-    100% { border-color: transparent; }
+.hero p { 
+    font-size: 18px; 
+    color: #475569; 
+    margin-bottom: 35px; 
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .primary-cta { 
