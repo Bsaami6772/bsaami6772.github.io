@@ -5,13 +5,11 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 body { 
-    background: url('bg.jpg') no-repeat center center fixed; 
-    background-size: cover;
+    background: linear-gradient(180deg, #e0edff 0%, #f4f8ff 40%, #ffffff 100%); 
     color: #0f172a; 
     line-height: 1.6; 
     overflow-x: hidden;
 }
-
 /* Floating Pill Navbar */
 .nav-container {
     display: flex;
