@@ -315,24 +315,72 @@ nav {
     color: #3b82f6;
     padding-left: 20px;
 }
+/* Trusted By Clean Minimalist Marquee */
+.trusted-section {
+    padding: 30px 0 50px 0;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.trusted-title {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Slider Container */
+.logos-slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logos-track {
+    display: flex;
+    flex-direction: row;
+    gap: 60px; /* Logos ke darmiyan khula fasla */
+    align-items: center;
+    width: max-content;
+    animation: scrollLogos 30s linear infinite;
+}
+
+/* Baghair box ya background ke clean logo items */
 .logo-item {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    padding: 10px 20px;
-    border-radius: 8px;
-    white-space: nowrap;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
+
 .logo-item img {
-    height: 28px; /* Yahan se aap logos ki height control kar sakte hain */
+    height: 28px; /* Bilkul reference image jaisa size */
     width: auto;
     object-fit: contain;
-    opacity: 0.85;
+    opacity: 0.8;
     transition: 0.3s;
 }
+
 .logo-item img:hover {
     opacity: 1;
+}
+
+/* Smooth Infinite Scroll */
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
